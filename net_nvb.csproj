@@ -43,9 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2array.cs" />
     <Compile Include="2DA.cs" />
     <Compile Include="Array Prc.cs" />
     <Compile Include="DemoAry2.cs" />
+    <Compile Include="JaggedArray.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
