@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace net_nvb
 {
-    internal class 2DA
+    internal class DemoAry2
     {
         public static void Main(string[] args)
         {
