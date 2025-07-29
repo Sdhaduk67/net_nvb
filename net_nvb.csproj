@@ -46,10 +46,13 @@
     <Compile Include="2array.cs" />
     <Compile Include="2DA.cs" />
     <Compile Include="Array Prc.cs" />
+    <Compile Include="CommandLineArg.cs" />
     <Compile Include="DemoAry2.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="JaggedArray.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Time.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
