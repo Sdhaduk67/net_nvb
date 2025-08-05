@@ -1,69 +1,68 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace net_nvb
+namespace net
 {
-    internal class Time
+    internal class time
     {
-        private int hour;
-        private int minute;
-        private int second;
+        public int hour;
+        public int minute;
+        public int second;
 
-        public Time(int h, int m, int s)
+        public void getTime(int hour, int minute, int second)
         {
-            hour = h;
-            minute = m;
-            second = s;
+            this.hour = hour;
+            this.minute = minute;
+            this.second = second;
         }
 
-        public void Display()
+        public void showTime()
         {
-            Console.WriteLine($"{hour:D2}:{minute:D2}:{second:D2}");
+            Console.WriteLine("Time is: " + hour + ":" + minute + ":" + second);
         }
 
-        public void IncrementSecond()
+        public void addTime(time t1, time t2) // Corrected method name to addTime
         {
-            second++;
-            if (second >= 60)
+            this.hour = t1.hour + t2.hour;
+            this.minute = t1.minute + t2.minute;
+            this.second = t1.second + t2.second;
+
+            if (this.second >= 60)
             {
-                second = 0;
-                minute++;
-                if (minute >= 60)
-                {
-                    minute = 0;
-                    hour++;
-                    if (hour >= 24)
-                    {
-                        hour = 0;
-                    }
-                }
+                this.second -= 60;
+                this.minute++; // Corrected: increment minute
+            }
+
+            if (this.minute >= 60)
+            {
+                this.minute -= 60;
+                this.hour++; // Corrected: increment hour
             }
         }
+    }
 
+    // This is the new class containing the Main method
+    class Program
+    {
         static void Main(string[] args)
         {
-            Time t1 = new Time(11, 28, 35);
-            Console.Write("Current Time: ");
-            t1.Display();
+            // Example usage of the time class
+            time t1 = new time();
+            t1.getTime(10, 30, 45);
+            t1.showTime();
 
-            t1.IncrementSecond();
-            Console.Write("After Increment: ");
-            t1.Display();
+            time t2 = new time();
+            t2.getTime(1, 40, 20);
+            t2.showTime();
 
-            Time t2 = new Time(11, 28, 59);
-            Console.Write("\nCurrent Time: ");
-            t2.Display();
+            time sumTime = new time();
+            sumTime.addTime(t1, t2);
+            sumTime.showTime();
 
-            t2.IncrementSecond();
-            Console.Write("After Increment: ");
-            t2.Display();
-
-            Time t3 = new Time(11, 59, 59);
-            Console.Write("\nCurrent Time: ");
-            t3.Display();
-
-            t3.IncrementSecond();
-            Console.Write("After Increment: ");
-            t3.Display();
+            Console.ReadKey(); // Keeps the console open until a key is pressed
         }
     }
 }
